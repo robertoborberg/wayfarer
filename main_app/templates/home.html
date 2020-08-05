@@ -1,6 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Welcome to Wayfarer</h1>
+  <section class="hero">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://picsum.photos/800/200" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/800/200" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/800/200" class="d-block w-100" alt="...">
+        </div>
+      </div>
+    </div>
+  </section>
 
+<section class="content container">
+  <div class="heroText my-4">
+    <h1 class="text-center">Wayfarer is...</h1>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h2 class="topic">Topic</h2>
+      <p class="homeArticle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima assumenda id officia facere a, fugit consequatur omnis placeat amet delectus cupiditate adipisci mollitia dicta molestiae ad excepturi. Neque consequatur ipsam aperiam sapiente sequi laborum possimus nihil perspiciatis vero non dolore commodi corporis, veniam qui dolor incidunt voluptatem ut quis recusandae?</p>
+    </div>
+    <div class="col-4">
+      <h2 class="topic">Topic</h2>
+      <p class="homeArticle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima assumenda id officia facere a, fugit consequatur omnis placeat amet delectus cupiditate adipisci mollitia dicta molestiae ad excepturi. Neque consequatur ipsam aperiam sapiente sequi laborum possimus nihil perspiciatis vero non dolore commodi corporis, veniam qui dolor incidunt voluptatem ut quis recusandae?</p>
+    </div>
+    <div class="col-4">
+      <h2 class="topic">Topic</h2>
+      <p class="homeArticle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima assumenda id officia facere a, fugit consequatur omnis placeat amet delectus cupiditate adipisci mollitia dicta molestiae ad excepturi. Neque consequatur ipsam aperiam sapiente sequi laborum possimus nihil perspiciatis vero non dolore commodi corporis, veniam qui dolor incidunt voluptatem ut quis recusandae?</p>
+    </div>
+  </div>
+</section>
 {% endblock %}
