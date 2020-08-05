@@ -7,3 +7,16 @@
 main {
     min-height: 90vh;
 }
+
+.box {
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+#addCityBtn {
+    border-radius: 50%;
+    background-color: rebeccapurple;
+    color: white;
+    width: 50px;
+    height: 50px;
+}
