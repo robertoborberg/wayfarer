@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
@@ -9,7 +9,7 @@ def city_index(request):
     return render(request, 'city/index.html')
 
 def signup(request):
-    error_message = ''
+    error_message = 'Error'
     form = UserCreationForm()
     context = {
         'form': form,
@@ -17,6 +17,7 @@ def signup(request):
     }
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
+        print(form)
         if form.is_valid():
             user = form.save()
             login(request, user)
