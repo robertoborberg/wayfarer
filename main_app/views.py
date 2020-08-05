@@ -21,10 +21,13 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return render(request, 'profile.html')
         else:
             global error 
             error = 'User account already exists'
             return render(request, 'registration/signup.html', context)
     else:
         return render(request, 'registration/signup.html', context)
+
+def profile(request, user_id):
+    return render(request, 'profile.html')
