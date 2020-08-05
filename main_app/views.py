@@ -10,6 +10,9 @@ def home(request):
 def city_index(request):
     return render(request, 'city/index.html')
 
+def city_detail(request):
+    return render(request, 'city/detail.html')
+
 def signup(request):
     error_message = 'Error'
     form = UserCreationForm(request.POST)
@@ -41,19 +44,8 @@ def update(request, user):
             user.save()
             return redirect('profile', user.user_id)
 
-# def update(request):
-#   if request.method == 'POST':
-#     name = request.POST['name']
-#     city = request.POST['breed']
-#     form = ProfileForm(request.POST)
-#     new_profile = form.save(commit=false)
-#     new_profile.user = request.user
-#     new_profile.save()
-#     return redirect('detail', new_profile.id)
-#   else:
-#     form = ProfileForm()
-#     return render(request, 'profile.html')
+
 
 def profile(request, user_id):
     # profile = Profile.objects.get()
-    return render(request, 'profile.html')
+    return render(request, 'registration/profile.html')
