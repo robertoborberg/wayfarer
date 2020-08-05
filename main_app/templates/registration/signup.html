@@ -12,15 +12,15 @@
       {% csrf_token %}
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control"  placeholder="Enter username">
+          <input type="text" class="form-control" name="username" placeholder="Enter username">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password1" placeholder="Password">
         </div>
         <div class="form-group">
           <label for="password">Confirm Password</label>
-          <input type="password" class="form-control" placeholder="Confirm Password">
+          <input type="password" class="form-control" name="password2" placeholder="Confirm Password">
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-primary" value="signup">Sign Up!</button>
