@@ -13,6 +13,9 @@ def city_index(request):
 def city_detail(request):
     return render(request, 'city/detail.html')
 
+def city_post(request):
+    return render(request, 'city/post.html')
+
 def signup(request):
     error_message = 'Error'
     form = UserCreationForm(request.POST)
