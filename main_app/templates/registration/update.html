@@ -7,8 +7,8 @@
 
 <form action="{% url 'update_profile' %}" method="POST">
     {% csrf_token %}
-
-<div class="form-group">
+    {{ form.as_p }}
+{% comment %} <div class="form-group">
     <label for="city">City</label>
     <input type="text" class="form-control" name="city" placeholder="City">
   </div>

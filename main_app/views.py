@@ -11,7 +11,7 @@ def home(request):
 def city_index(request):
     return render(request, 'city/index.html')
 
-def signup(request):
+def signup(request, user_id):
     error_message = 'Error'
     form = UserCreationForm()
     context = {
