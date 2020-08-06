@@ -35,12 +35,9 @@ def signup(request):
             profile = form2.save(commit=False)
             profile.user_id = user.id
             profile.save()
-            context = {
-                'user': user,
-                'user_id': user.id,
-                'profile': profile,
-            }
-            return render(request, 'profile.html', context)
+            
+            
+            return redirect(f'/profile/{user.id}', { 'user': user, 'profile': profile } )
         else:
             global error 
             error = 'User account already exists'
@@ -49,19 +46,18 @@ def signup(request):
         form = UserCreationForm()
         return render(request, 'registration/signup.html', {'form': form})
 
-def update(request):
-    form = ProfileForm()
-    print(user)
+def update(request, user_id):
+    profile = Profile.objects.get(user_id=user_id)
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             profile = form.save()
-            return render('profile.html', {'profile': profile})
+            return redirect(f'/profile/{profile.user_id}', {'profile': profile})
         else:
             return redirect('home')
     else:
-        form = ProfileForm()
-        return render('registration/update.html', {'form': form})
+        form = ProfileForm(instance=profile)
+        return render(request, 'registration/update.html', {'form': form, 'profile': profile, 'user_id': user_id})
 # def update(request):
 #   if request.method == 'POST':
 #     name = request.POST['name']
@@ -75,6 +71,6 @@ def update(request):
 #     form = ProfileForm()
 #     return render(request, 'profile.html')
 
-def profile(request, profile_id):
-    profile = Profile.objects.filter(profile_id = profile_id)
-    return render(request, 'profile.html', {'profile': profile, 'user': user})
+def profile(request, user_id):
+    profile = Profile.objects.get(user_id = user_id)
+    return render(request, 'profile.html', {'user_id':user_id, 'profile':profile})
