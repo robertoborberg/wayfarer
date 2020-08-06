@@ -10,7 +10,6 @@ main {
 
 .box {
     border-radius: 10px;
-    background-color: rgba(0,0,0,0.1);
 }
 
 #addCityBtn {
@@ -21,13 +20,20 @@ main {
     height: 50px;
 }
 
-h4, h5 {
+h3, h4, h5 {
     font-family: ‘PT Serif’, serif;
 }
 
-#project-logo {
+/* ---------Nav Bar---------- */
+header {
+    background-color: white;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+#project-logo, .text-center {
     font-family: PT Sans;
     font-style: italic;
     font-weight: bold;
     font-size: 32px;
 }
+
