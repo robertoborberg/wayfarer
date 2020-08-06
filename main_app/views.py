@@ -47,7 +47,7 @@ def signup(request):
 
 def update(request):
     form = ProfileForm()
-    print(user)
+    # print(user)
     if request.method == 'POST':
         form = ProfileForm(request.POST)
         if form.is_valid():
@@ -58,18 +58,6 @@ def update(request):
     else:
         form = ProfileForm()
         return render('registration/update.html', {'form': form})
-# def update(request):
-#   if request.method == 'POST':
-#     name = request.POST['name']
-#     city = request.POST['breed']
-#     form = ProfileForm(request.POST)
-#     new_profile = form.save(commit=false)
-#     new_profile.user = request.user
-#     new_profile.save()
-#     return redirect('detail', new_profile.id)
-#   else:
-#     form = ProfileForm()
-#     return render(request, 'profile.html')
 
 def profile(request, user_id):
     # profile = Profile.objects.get()
