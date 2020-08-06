@@ -8,7 +8,11 @@
 <form action="{% url 'update_profile' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-{% comment %} <div class="form-group">
+   <div class="form-group">
+     <label for="image">Select a Photo</label>
+     <input type="hidden" role="uploadcare-uploader" name="image"/>
+   </div>
+    <div class="form-group">
     <label for="city">City</label>
     <input type="text" class="form-control" name="city" placeholder="City">
   </div>
@@ -21,4 +25,15 @@
   </div>
 </form>
 </section>
+<script>
+  (function(src, cb) {
+   let s = document.createElement('script'); s.setAttribute('src', src);
+   s.onload = cb; (document.head || document.body).appendChild(s);
+ })('https://ucarecdn.com/libs/blinkloader/3.x/blinkloader.min.js', function() {
+   window.Blinkloader.optimize({
+     pubkey:'2b99c12cdd0c28431a29',
+     fadeIn:true
+   });
+ })
+</script>
 {% endblock %}

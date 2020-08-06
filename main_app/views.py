@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .forms import ProfileForm
 from .models import Profile
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -34,9 +35,12 @@ def signup(request):
             profile = form2.save(commit=False)
             profile.user_id = user.id
             profile.save()
-            
-            
-            return render(request, 'registration/update.html', { 'user': user })
+            context = {
+                'user': user,
+                'user_id': user.id,
+                'profile': profile,
+            }
+            return render(request, 'profile.html', context)
         else:
             global error 
             error = 'User account already exists'
@@ -71,6 +75,6 @@ def update(request):
 #     form = ProfileForm()
 #     return render(request, 'profile.html')
 
-def profile(request, user_id):
-    # profile = Profile.objects.get()
-    return render(request, 'registration/profile.html')
+def profile(request, profile_id):
+    profile = Profile.objects.filter(profile_id = profile_id)
+    return render(request, 'profile.html', {'profile': profile, 'user': user})
