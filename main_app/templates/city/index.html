@@ -1,50 +1,6 @@
-{% extends 'base.html' %}
-{% block content %}
-  <section class="my-4">
-    <div class="row">
-      <div class="col-4">
-        <div class="box row p-1 m-3">
-          <img class="m-3" src="https://picsum.photos/50">
-          <a href="/city/detail">
-            <h4 class="cityName m-3">London</h4>
-          </a>
-        </div>
-        <div class="box row p-1 m-3">
-          <img  class="m-3" src="https://picsum.photos/50">
-          <a href="/city/detail">
-            <h4 class="cityName m-3">Sydney</h4>
-          </a>
-        </div>
-        <div class="box row p-1 m-3">
-          <img  class="m-3" src="https://picsum.photos/50">
-          <a href="/city/detail">
-            <h4 class="cityName m-3">San Francisco</h4>
-          </a>
-        </div>
-        <div class="box row p-1 m-3">
-          <img  class="m-3" src="https://picsum.photos/50">
-          <a href="/city/detail">
-            <h4 class="cityName m-3">Seattle</h4>
-          </a>
-        </div>
-      </div>
-      <div class="col-8 box">
-        <div class="row">
-          <div class="col">
-            <h3>London</h3>
-            <h5>United Kingdom</h5>
-          </div>
-          <img  class="m-3" src="https://picsum.photos/300/200">
-        </div>
-        <div class="row">
-          <div class="col">
-            <h3>Posts</h3>
-          </div>
-            <div class="float-right mx-5">
-              <button id="addCityBtn">+</button>
-            </div> 
-          
-        </div>
+{% extends 'city/city_base.html' %}
+{% block posts %}
+  
         <div class="box row p-1 m-3">
           <a href="/city/post">
             <img  class="m-3" src="https://picsum.photos/80">
@@ -63,11 +19,6 @@
               </a>
             </div>
           </div>
-  
-
-      </div>
-    </div>
-  </section>
 
    
 {% endblock %}
