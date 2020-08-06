@@ -36,7 +36,7 @@ def signup(request):
             profile.save()
             
             
-            return render(request, 'registration/update.html', { 'user': user })
+            return redirect(f'/profile/{user.id}', { 'user': user, 'profile': profile } )
         else:
             global error 
             error = 'User account already exists'
@@ -60,5 +60,5 @@ def update(request):
         return render('registration/update.html', {'form': form})
 
 def profile(request, user_id):
-    # profile = Profile.objects.get()
-    return render(request, 'registration/profile.html')
+    profile = Profile.objects.get(user_id = user_id)
+    return render(request, 'profile.html', {'user_id':user_id, 'profile':profile})
