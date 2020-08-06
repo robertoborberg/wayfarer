@@ -2,7 +2,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background: black;
 }
 
 main {
@@ -11,7 +10,6 @@ main {
 
 .box {
     border-radius: 10px;
-    background-color: rgba(0,0,0,0.1);
 }
 
 #addCityBtn {
