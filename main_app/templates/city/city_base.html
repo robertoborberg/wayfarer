@@ -1,0 +1,48 @@
+{% load static %}
+
+  <section class="my-4">
+    <div class="row">
+      <div class="col-4">
+        <h3>Cities</h3>
+        <div class="box row p-1 m-3">
+          <img class="m-3" src="https://picsum.photos/50">
+          <a href="/city/detail">
+            <h4 class="cityName m-3">London</h4>
+          </a>
+        </div>
+        <div class="box row p-1 m-3">
+          <img  class="m-3" src="https://picsum.photos/50">
+          <a href="/city/detail">
+            <h4 class="cityName m-3">Sydney</h4>
+          </a>
+        </div>
+        <div class="box row p-1 m-3">
+          <img  class="m-3" src="https://picsum.photos/50">
+          <a href="/city/detail">
+            <h4 class="cityName m-3">San Francisco</h4>
+          </a>
+        </div>
+        <div class="box row p-1 m-3">
+          <img  class="m-3" src="https://picsum.photos/50">
+          <a href="/city/detail">
+            <h4 class="cityName m-3">Seattle</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-8 box">
+        <div class="row">
+          <div class="col">
+            <h3>London</h3>
+            <h5>United Kingdom</h5>
+          </div>
+          <img  class="m-3" src="https://picsum.photos/300/200">
+        </div>
+        {% block content %}
+        {% endblock %}
+        </div>
+        </div>
+  
+
+      </div>
+    </div>
+  </section>
