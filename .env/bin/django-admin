@@ -1,4 +1,4 @@
-#!/Users/chasesheaff/my_directory/sei/projects/Wayfarer/.env/bin/python3
+#!/Users/nate_daniels/sei/wayfarer/.env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

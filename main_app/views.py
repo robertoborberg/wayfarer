@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .forms import ProfileForm
 from .models import Profile
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -45,19 +46,30 @@ def signup(request):
         form = UserCreationForm()
         return render(request, 'registration/signup.html', {'form': form})
 
-def update(request):
-    form = ProfileForm()
-    # print(user)
+def update(request, user_id):
+    profile = Profile.objects.get(user_id=user_id)
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             profile = form.save()
-            return render('profile.html', {'profile': profile})
+            return redirect(f'/profile/{profile.user_id}', {'profile': profile})
         else:
             return redirect('home')
     else:
-        form = ProfileForm()
-        return render('registration/update.html', {'form': form})
+        form = ProfileForm(instance=profile)
+        return render(request, 'registration/update.html', {'form': form, 'profile': profile, 'user_id': user_id})
+# def update(request):
+#   if request.method == 'POST':
+#     name = request.POST['name']
+#     city = request.POST['breed']
+#     form = ProfileForm(request.POST)
+#     new_profile = form.save(commit=false)
+#     new_profile.user = request.user
+#     new_profile.save()
+#     return redirect('detail', new_profile.id)
+#   else:
+#     form = ProfileForm()
+#     return render(request, 'profile.html')
 
 def profile(request, user_id):
     profile = Profile.objects.get(user_id = user_id)
