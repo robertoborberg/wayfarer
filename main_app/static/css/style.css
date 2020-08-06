@@ -2,10 +2,16 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    background: black;
 }
 
 main {
     min-height: 90vh;
+}
+
+/* NAV BAR */
+h4, h5 {
+    font-family: 'PT Serif', serif;
 }
 
 .box {
