@@ -124,3 +124,8 @@ LOGIN_REDIRECT_URL = '/profile/'
 
 LOGOUT_REDIRECT_URL = '/'
 
+UPLOADCARE = {
+    'pub_key': '2b99c12cdd0c28431a29',
+    'secret': 'de7a07485df374095f5d',
+}
+
