@@ -7,7 +7,7 @@ from .models import Profile, Post, City
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', context)
 
 def city_index(request):
     cities = City.objects.all()
@@ -19,6 +19,7 @@ def city_detail(request, city_id):
     context = {
         'city': city,
         'posts': posts,
+
     }
     return render(request, 'city/detail.html', context)
 
@@ -74,26 +75,12 @@ def update(request):
     else:
         form = ProfileForm(instance=profile)
         return render(request, 'registration/update.html', {'form': form, 'profile': profile})
-# def update(request):
-#   if request.method == 'POST':
-#     name = request.POST['name']
-#     city = request.POST['breed']
-#     form = ProfileForm(request.POST)
-#     new_profile = form.save(commit=false)
-#     new_profile.user = request.user
-#     new_profile.save()
-#     return redirect('detail', new_profile.id)
-#   else:
-#     form = ProfileForm()
-#     return render(request, 'profile.html')
 
 def profile(request):
     profile = Profile.objects.get(user = request.user.id)
-    #profile = request.user.profile
     posts = Post.objects.filter(profile = profile.id)
-    #print(profile.name)
     return render(request, 'profile.html', {'profile':profile, 'posts': posts})
-    #return render(request, 'profile.html', {'user': profile})
+    
 
 def post_new(request, city_id):
     city = City.objects.get(id = city_id)
@@ -137,6 +124,5 @@ def post_detail(request, post_id):
     return render(request, 'post.html', context)
 
 def post_delete(request, post_id):
-    post= Post.objects.get(id=post_id)
-    post.delete()
-    return redirect('/city')
+    Post.objects.get(id=post_id).delete()
+    return redirect('city_index')
