@@ -4,10 +4,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from .forms import ProfileForm, PostForm
 from .models import Profile, Post, City
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html', context)
+    return render(request, 'home.html')
 
 def city_index(request):
     cities = City.objects.all()
@@ -63,6 +64,7 @@ def signup(request):
         form = UserCreationForm()
         return render(request, 'registration/signup.html', {'form': form})
 
+@login_required
 def update(request):
     profile = Profile.objects.get(user=request.user.id)
     if request.method == 'POST':
@@ -76,12 +78,13 @@ def update(request):
         form = ProfileForm(instance=profile)
         return render(request, 'registration/update.html', {'form': form, 'profile': profile})
 
+@login_required
 def profile(request):
     profile = Profile.objects.get(user = request.user.id)
     posts = Post.objects.filter(profile = profile.id)
     return render(request, 'profile.html', {'profile':profile, 'posts': posts})
     
-
+@login_required
 def post_new(request, city_id):
     city = City.objects.get(id = city_id)
     profile = Profile.objects.get(user = request.user.id)
@@ -98,6 +101,7 @@ def post_new(request, city_id):
         form = PostForm()
         return render(request, 'post_new.html', {'form': form, 'city': city, 'profile': profile })        
 
+@login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.method == 'POST':
@@ -123,6 +127,7 @@ def post_detail(request, post_id):
     }
     return render(request, 'post.html', context)
 
+@login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
     return redirect('city_index')
