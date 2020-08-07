@@ -24,8 +24,29 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque    officiis accusamus optio placeat tenetur architecto debitis inventore  ratione deleniti.</p>
           </a>
         </div>
+<<<<<<< HEAD
       </div>
 
 </section>
+=======
+
+        <div class="deleteContainer {{ hidden }}">
+          <div class="deleteBox">
+              <!-- this is where we'll put the login/signup forms -->
+            <span class="close-box"><i class="far fa-times-circle fa-2x"></i></span>
+            <div class="form-content">
+              {% if form %}
+                {% if formType == 'delete' %}
+                  <form action="{% url 'delete' %}" method="DELETE">
+                {% endif %}
+                  {% csrf_token %}
+                  {{ form.as_p}}
+                  <button type="submit">Submit</button>
+                </form>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+>>>>>>> submaster
    
 {% endblock %}
