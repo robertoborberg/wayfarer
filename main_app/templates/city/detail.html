@@ -1,45 +1,25 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'city/city_base.html' %}
+{% block posts %}
 
-<section class="hero">
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-          <img src="https://picsum.photos/800/200" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://picsum.photos/800/200" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://picsum.photos/800/200" class="d-block w-100" alt="...">
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="content container">
-  <div class="heroText my-4">
-    <h1 class="text-center">London</h1>
-    <h5 class="text-center">United Kingdom</h5>
+<h1>{{ city.name }}</h1>
+<img src="{{city.image}}" width="100" height="100">
+{% if posts.count %}
+{% for post in posts %}
+<div class="box row p-1 m-3">
+  <a href="{% url 'post_detail' post.id %}">
+    <img  class="m-3" src="{{ profile.image }}">
+    <div class="col">
+      <h5 class="cityName m-3">{{post.title}}</h5>
+      <p>{{post.content}}</p>
+  </a>
+</div>
+{% endfor %}
+{% else %}
+<p>No Posts Yet</p>
+{% endif %}
+<div class="add-post">
+  <a href="{% url 'post_new' city.id %}">New Post</a>
+</div>
 
-    <div class="box row p-1 m-3">
-      <a href="/city/post">
-        <img  class="grow m-3" src="https://picsum.photos/80">
-        <div class="col">
-          <h4 class="cityName">Post for London</h4>
-          <p>If you visit London you have to go to Cafe London. Like, it's amazing. I love the people working as you sip their handcrafted drinks.  I ate breakfest there and felt like a true London local.</p>
-        </a>
-      </div>
-    </div>
-    <div class="box row p-1 m-3">
-        <a href="/city/post">
-          <img  class="grow m-3" src="https://picsum.photos/80">
-          <div class="col">
-            <h4 class="cityName">Title for another London Post</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque    officiis accusamus optio placeat tenetur architecto debitis inventore  ratione deleniti.</p>
-          </a>
-        </div>
-      </div>
-
-</section>
 {% endblock %}

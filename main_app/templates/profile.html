@@ -17,28 +17,13 @@
           </a>
         </div>
       </div>
-
-
-
-      <div class="pl-4 my-4">
-        <h2>Posts</h2>
-        {% for post in profile.post_set.all  %}
-        
-        <div class="box row my-3">
-          <a href="#">
-            <div class="small-crop">
-              <img  class="m-3" src="{{ profile.image }}" width="70">
-            </div>
-          </a>
-          <div class="col m-2">
-            <h4 class="cityName">{{ post.title }}</h4>
-            <p>{{ post.content }}</p>
-          </div>
-        </div>
-        
-        {% endfor %}
+     {% for post in posts %}
+      <div class="box row p-1 m-3">
+        <a href="/post/{{ post.id }}">{{ post.title }}</a>
       </div>
+      {% endfor %}
     </div>
+      
   </section>
 
       
