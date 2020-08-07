@@ -1,41 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-  <section class="my-4">
+  <section class="container my-4">
     <div class="row">
       <div class="col-4">
-        <h3>Cities</h3>
-        <div class="box row p-1 m-3">
-          <img class="m-3" src="https://picsum.photos/50">
+        <h1 class="mx-3">Cities</h1>
           <a href="/city/detail">
-            <h4 class="cityName m-3">London</h4>
+            <div class="box row p-1 m-3">
+              <img class="grow m-3" src="https://picsum.photos/50">
+              <h4 class="cityName m-3">London</h4>
+            </div>
           </a>
-        </div>
-        <div class="box row p-1 m-3">
-          <img  class="m-3" src="https://picsum.photos/50">
           <a href="/city/detail">
-            <h4 class="cityName m-3">Sydney</h4>
+            <div class="box row p-1 m-3">
+              <img  class="grow m-3" src="https://picsum.photos/50">
+              <h4 class="cityName m-3">Sydney</h4>
+            </div>
           </a>
-        </div>
-        <div class="box row p-1 m-3">
-          <img  class="m-3" src="https://picsum.photos/50">
           <a href="/city/detail">
-            <h4 class="cityName m-3">San Francisco</h4>
+            <div class="box row p-1 m-3">
+              <img  class="grow m-3" src="https://picsum.photos/50">
+              <h4 class="cityName m-3">San Francisco</h4>
+            </div>
           </a>
-        </div>
-        <div class="box row p-1 m-3">
-          <img  class="m-3" src="https://picsum.photos/50">
           <a href="/city/detail">
-            <h4 class="cityName m-3">Seattle</h4>
+            <div class="box row p-1 m-3">
+              <img  class="grow m-3" src="https://picsum.photos/50">
+              <h4 class="cityName m-3">Seattle</h4>
+            </div>
           </a>
-        </div>
       </div>
       <div class="col-8 box">
         <div class="row">
           <div class="col">
-            <h3>London</h3>
-            <h5>United Kingdom</h5>
+            <h1 class="mt-3 ml-3">London</h1>
+            <h5 class="ml-3">United Kingdom</h5>
           </div>
-          <img  class="m-3" src="https://picsum.photos/300/200">
+          <img  class="mt-3 mr-5" src="https://picsum.photos/300/200">
         </div>
         {% block posts %}
         {% endblock %}
