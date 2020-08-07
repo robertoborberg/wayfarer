@@ -7,10 +7,7 @@ from .models import Profile, Post, City
 
 # Create your views here.
 def home(request):
-    context = {
-        'hidden': "hidden"
-    }
-    return render(request, 'home.html', context)
+    return render(request, 'home.html')
 
 def city_index(request):
     cities = City.objects.all()
@@ -22,7 +19,6 @@ def city_detail(request, city_id):
     context = {
         'city': city,
         'posts': posts,
-
     }
     return render(request, 'city/detail.html', context)
 
@@ -79,18 +75,6 @@ def update(request, user_id):
     else:
         form = ProfileForm(instance=profile)
         return render(request, 'registration/update.html', {'form': form, 'profile': profile, 'user_id': user_id})
-# def update(request):
-#   if request.method == 'POST':
-#     name = request.POST['name']
-#     city = request.POST['breed']
-#     form = ProfileForm(request.POST)
-#     new_profile = form.save(commit=false)
-#     new_profile.user = request.user
-#     new_profile.save()
-#     return redirect('detail', new_profile.id)
-#   else:
-#     form = ProfileForm()
-#     return render(request, 'profile.html')
 
 def profile(request, user_id):
     profile = Profile.objects.get(user_id = user_id)
@@ -135,10 +119,9 @@ def post_detail(request, post_id):
         'post': post,
         'profile': profile,
         'city': city,
-        'hidden': "hidden"
     }
     return render(request, 'post.html', context)
 
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
-    return redirect('city_index')
+    return redirect('home')
