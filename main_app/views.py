@@ -7,7 +7,10 @@ from .models import Profile, Post, City
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        'hidden': "hidden"
+    }
+    return render(request, 'home.html', context)
 
 def city_index(request):
     cities = City.objects.all()
@@ -19,6 +22,7 @@ def city_detail(request, city_id):
     context = {
         'city': city,
         'posts': posts,
+
     }
     return render(request, 'city/detail.html', context)
 
@@ -131,10 +135,10 @@ def post_detail(request, post_id):
         'post': post,
         'profile': profile,
         'city': city,
+        'hidden': "hidden"
     }
     return render(request, 'post.html', context)
 
 def post_delete(request, post_id):
-    post= Post.objects.get(id=post_id)
-    post.delete()
-    return redirect('/city')
+    Post.objects.get(id=post_id).delete()
+    return redirect('city_index')
