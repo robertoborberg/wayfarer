@@ -1,9 +1,28 @@
-{% extends 'city/city_base.html' %}
-{% block posts %}
+{% extends 'base.html' %}
+{% block detail %}
 
 
-<h1>{{ city.name }}</h1>
-<img src="{{city.image}}" width="100" height="100">
+    
+
+
+<section class="hero">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active item">
+          <img src="{{city.image}}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+</section>
+<div class="text-center">
+  <h1>{{ city.name }}</h1>
+  <h4>{{ city.country }}</h4>
+  <div class="add-post">
+    <a href="{% url 'post_new' city.id %}">
+      <button class="btn btn-primary">New Post</button>
+    </a>
+  </div>
+</div>
 {% if posts.count %}
 {% for post in posts %}
 <div class="box row p-1 m-3">
@@ -12,14 +31,13 @@
     <div class="col">
       <h5 class="cityName m-3">{{post.title}}</h5>
       <p>{{post.content}}</p>
+    </div>
   </a>
 </div>
 {% endfor %}
 {% else %}
 <p>No Posts Yet</p>
 {% endif %}
-<div class="add-post">
-  <a href="{% url 'post_new' city.id %}">New Post</a>
-</div>
+
 
 {% endblock %}
