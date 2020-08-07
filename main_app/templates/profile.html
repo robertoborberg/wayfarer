@@ -2,30 +2,45 @@
 {% block content %}
 
   <section class="my-4">
-    <div class="container col-md-offset-3 col-md-6">
-      <h5 class="text-center">This is your profile</h5>
-      <h2 class="text-center">{{ profile.name }}</h2>
-      <h3 class="text-center">{{ profile.city }}</h3>
-      <h3 class="text-center">Member since: {{ user.date_joined }}</h3>
-      <img src="{{ profile.image }}" width="500">
-      <a href="{% url 'update_profile' profile.user_id %}">
-        <button class="btn btn-primary">Update</button>
-      </a>
+    <div class="container col-md-offset-4 col-md-4">
 
-      <div class="row">
-        <h3>Posts</h3>
+      <div class="box">
+        <h2 class="text-center pt-2">{{ profile.name }}</h2>
+        <h4 class="text-center">{{ profile.city }}</h4>
+        <div class="crop mx-auto">
+          <img src="{{ profile.image }}" width="200">
+        </div>
+        <p class="text-center"><small>Member since: {{ user.date_joined }}</small></p>
+        <div class="text-center">
+          <a  href="{% url 'update_profile' profile.user_id %}">
+            <button class="btn btn-primary mb-3">Update</button>
+          </a>
+        </div>
       </div>
 
-      <div class="box row p-1 m-3">
-        <a href="/city/post">
-          <img  class="m-3" src="https://picsum.photos/80">
-          <div class="col">
-            <h5 class="cityName m-3">London Calling</h5>
-            <p>If you visit London you have to go to Cafe London. Like, it's amazing. I love the people working as you sip their handcrafted drinks.  I ate breakfest there and felt like a true London local.</p>
+
+
+      <div class="pl-4 my-4">
+        <h2>Posts</h2>
+        {% for post in profile.post_set.all  %}
+        
+        <div class="box row my-3">
+          <a href="#">
+            <div class="small-crop">
+              <img  class="m-3" src="{{ profile.image }}" width="70">
+            </div>
+          </a>
+          <div class="col m-2">
+            <h4 class="cityName">{{ post.title }}</h4>
+            <p>{{ post.content }}</p>
           </div>
-        </a>
+        </div>
+        
+        {% endfor %}
       </div>
     </div>
   </section>
+
+      
 
 {% endblock %}
