@@ -10,77 +10,83 @@ main {
 }
 
 .box {
+    background-color: rgba(46,139,87,0.2);
     border-radius: 10px;
+}
+/*------- Buttons -----------*/
+.grow {
+    transition: all .2s ease-in-out;
+}
+.grow:hover {
+    transform: scale(1.2);
 }
 
 #addCityBtn {
     border-radius: 50%;
-    background-color: rebeccapurple;
+    background-color: seagreen;
     color: white;
     width: 50px;
     height: 50px;
 }
-
-h3, h4, h5 {
-    font-family: ‘PT Serif’, serif;
+/*-------- Fonts ------------*/
+h1 {
+    font-family: PT Sans;
+    font-style: italic;
+    font-weight: bold;
 }
 
+h2 {
+    color: seagreen;
+    font-weight: 700;
+}
+h3, h4, h5 {
+    font-family: 'PT Sans', serif;
+}
+.cityName {
+    font-weight: 700;
+}
+label {
+    font-weight: 700;
+}
+a {
+    color: black;
+}
 /* ---------Nav Bar---------- */
 header {
     background-color: white;
     border-bottom: 1px solid #F0F0F0;
 }
 
-#project-logo, .text-center {
+#project-logo {
     font-family: PT Sans;
     font-style: italic;
     font-weight: bold;
     font-size: 32px;
+    color: seagreen;
 }
 
-/* ----------Delete Box------------ */
-.deleteContainer {
-    position: absolute;
-    height: calc(100vw -56px);
-    width: 100vw;
-    background-color: rgba(0,0,0,0.25);
-    display: flex;
-    justify-content: flex;
-    align-items: center;
-    z-index: 100;
-    pointer-events: auto;
+/*--------- Image Sizes --------*/
+
+.crop {
+    border: 6px solid seagreen;
+    border-radius: 50%;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
 }
 
-.hidden {
-    opacity: 0;
-    pointer-events: none;
+.small-crop {
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
 }
-
-.deleteBox {
-    min-height: 200px;
-    min-width: 200px;
-    max-width: 500px;
-    background: white;
-    z-index: 101;
-    border: solid grey 2px;
-    border-radius: 20px;
-    position: relative;
+.large-crop {
+    background-position: center;
+    border: 6px solid seagreen;
+    background-size: cover;
+    width: 600px;
+    height: 200px;
+    overflow: hidden;
 }
-
-.close-box {
-    cursor: pointer;
-}
-.close-box:hover {
-    color: red;
-}
-.fa-times-circle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.form-content {
-    margin: 40px 10px;
-    padding: 10px;
-}
-
