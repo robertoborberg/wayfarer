@@ -51,6 +51,13 @@ label {
 a {
     color: black;
 }
+
+.display-4 {
+    font-family: PT Sans;
+    font-style: italic;
+    color: white;
+}
+
 /* ---------Nav Bar---------- */
 header {
     background-color: white;
@@ -90,3 +97,15 @@ header {
     height: 200px;
     overflow: hidden;
 }
+.carousel .item {
+    height: 200px;
+  }
+  
+.item img {
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 200px;
+}
+
