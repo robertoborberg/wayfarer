@@ -1,3 +1,4 @@
+console.log("hellow")
 const popup1 = document.getElementById("popup-1")
 const openPopup1 = document.getElementById("open-popup-1")
 const closePopup1 = document.getElementById('close-popup-1')
