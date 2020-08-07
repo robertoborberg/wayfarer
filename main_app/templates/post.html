@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Post Show Page</h1>
+<img src="{{ profile.image }}" width="40" height="40">
+<h2>{{ post.title }}</h2>
+<h3>Created by: {{ profile.name }}</h3>
+<p>{{ post.content }}</p>
+<a href="{% url 'post_delete' post.id %}">Delete</a>
+<a href="{% url 'post_edit' post.id %}">Edit</a>
+{% endblock %}

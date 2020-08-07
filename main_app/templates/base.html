@@ -29,13 +29,10 @@
               <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}  
                     <li class="nav-item">
-                      <a class="nav-link" href="/profile">Profile</a>
+                      <a class="nav-link" href="/profile/{{ user.id }}">Profile</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/city">Cities</a>
-                    </li>
-                    <li>
-                      <a class="nav-link" href="">Profile</a>
                     </li>
                     <li>
                         <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
@@ -46,7 +43,7 @@
                   </li>
               <ul class="navbar-nav navbar-right">
                 <li class="nav-item ">
-                  <a class="nav-link" href="#" data-toggle="modal" data-target="myModal">Log in</a>
+                  <a class="nav-link" href="/accounts/login" >Log in</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'signup'%}">Sign up</a>

@@ -15,17 +15,13 @@
       <div class="row">
         <h3>Posts</h3>
       </div>
-
+     {% for post in posts %}
       <div class="box row p-1 m-3">
-        <a href="/city/post">
-          <img  class="m-3" src="https://picsum.photos/80">
-          <div class="col">
-            <h5 class="cityName m-3">London Calling</h5>
-            <p>If you visit London you have to go to Cafe London. Like, it's amazing. I love the people working as you sip their handcrafted drinks.  I ate breakfest there and felt like a true London local.</p>
-          </div>
-        </a>
+        <a href="/post/{{ post.id }}">{{ post.title }}</a>
       </div>
+      {% endfor %}
     </div>
+      
   </section>
 
 {% endblock %}

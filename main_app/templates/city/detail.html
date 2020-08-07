@@ -1,21 +1,25 @@
 {% extends 'city/city_base.html' %}
 {% block posts %}
+
+
+<h1>{{ city.name }}</h1>
+<img src="{{city.image}}" width="100" height="100">
+{% if posts.count %}
+{% for post in posts %}
 <div class="box row p-1 m-3">
-  <a href="/city/post">
-    <img  class="m-3" src="https://picsum.photos/80">
+  <a href="{% url 'post_detail' post.id %}">
+    <img  class="m-3" src="{{ profile.image }}">
     <div class="col">
-      <h5 class="cityName m-3">Title</h5>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque    officiis accusamus optio placeat tenetur architecto debitis inventore  ratione deleniti.</p>
-    </a>
-  </div>
+      <h5 class="cityName m-3">{{post.title}}</h5>
+      <p>{{post.content}}</p>
+  </a>
 </div>
-<div class="box row p-1 m-3">
-    <a href="/city/post">
-      <img  class="m-3" src="https://picsum.photos/80">
-      <div class="col">
-        <h5 class="cityName m-3">Title</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque    officiis accusamus optio placeat tenetur architecto debitis inventore  ratione deleniti.</p>
-      </a>
-    </div>
-  </div>   
+{% endfor %}
+{% else %}
+<p>No Posts Yet</p>
+{% endif %}
+<div class="add-post">
+  <a href="{% url 'post_new' city.id %}">New Post</a>
+</div>
+
 {% endblock %}
